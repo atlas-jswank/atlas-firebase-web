@@ -1,7 +1,6 @@
-import React, { FormEvent } from "react";
+import { FormEvent } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import * as storage from "../../../lib/storage";
 
 interface Elements extends HTMLFormControlsCollection {
   file: HTMLInputElement;
@@ -17,12 +16,7 @@ export default function FileUpload() {
 
     const target = e.currentTarget.elements;
     const file = Array.from(target.file.files ?? []);
-    try {
-      await storage.upload(file[0], file[0].name);
-      alert("File uploaded successfully");
-    } catch {
-      alert("Error uploading files");
-    }
+    alert("Upload file");
     target.file.value = "";
     // e.currentTarget.reset();
   }

@@ -1,7 +1,4 @@
 import { FormEvent } from "react";
-import { auth } from "../../../firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useCurrentUser } from "./useCurrentUser";
 
 interface Elements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -13,7 +10,7 @@ interface Form extends HTMLFormElement {
 }
 
 export function Login() {
-  const user = useCurrentUser();
+  const user = undefined;
   async function handleSubmit(e: FormEvent<Form>) {
     e.preventDefault();
 
@@ -21,22 +18,14 @@ export function Login() {
     const email = target.email.value;
     const password = target.password.value;
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch {
-      alert("Invalid email or password");
-    }
-  }
-
-  function handleSignOut() {
-    auth.signOut();
+    alert(`Logged in as ${email} and password is ${password}`);
   }
 
   if (user) {
     return (
       <div className="flex flex-col gap-4">
         <div>Logged in as {user.email}</div>
-        <button onClick={handleSignOut}>Sign Out</button>
+        <button onClick={() => alert("Sign Out")}>Sign Out</button>
       </div>
     );
   }

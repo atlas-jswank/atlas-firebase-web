@@ -1,4 +1,3 @@
-import React from "react";
 import AddTodo from "./AddTodo";
 import { MyTodoList } from "./MyToDoList";
 import { UncompletedTodoList } from "./UncompletedToDoList";

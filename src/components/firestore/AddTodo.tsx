@@ -1,19 +1,15 @@
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import * as firestore from "../../../lib/firestore";
-import { auth } from "../../../firebaseConfig";
 
 export default function AddTodo() {
   const [newTodo, setNewTodo] = useState("");
+
   const addTodo = async () => {
-    try {
-      await firestore.create(newTodo, auth.currentUser?.uid ?? "");
-      setNewTodo("");
-    } catch (error) {
-      alert(error.message);
-    }
+    alert("Add todo " + newTodo);
+    setNewTodo("");
   };
+
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-card rounded-lg shadow-lg">
       <div className="flex mb-4">

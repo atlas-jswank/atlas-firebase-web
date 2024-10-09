@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { FileUp, RefreshCcw } from "lucide-react";
-import * as storage from "../../../lib/storage";
+import { RefreshCcw } from "lucide-react";
 import FileUpload from "./FileUpload";
 
 export function ImageGrid() {
-  const [images, setImages] = useState<string[]>([]);
-  useEffect(() => {
-    handleRefresh();
-  }, []);
+  const images = [];
 
   function handleRefresh() {
-    storage.getImages().then((images) => setImages(images));
+    alert("Refresh images");
   }
   return (
     <div className="mt-8">

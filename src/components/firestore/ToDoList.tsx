@@ -1,7 +1,6 @@
 import { Button } from "../ui/button";
 import { Trash2 } from "lucide-react";
 import { Checkbox } from "../ui/checkbox";
-import * as firestore from "../../../lib/firestore";
 
 type ToDo = {
   id: string;
@@ -17,11 +16,11 @@ export default function ToDoList({
   todos: ToDo[];
 }) {
   function toggleTodo(id: string, completed: boolean) {
-    firestore.updateCompleted(id, completed);
+    alert("Toggle todo " + id);
   }
 
   function removeTodo(id: string) {
-    firestore.deleteTodo(id);
+    alert("Remove todo " + id);
   }
 
   return (
